@@ -1,14 +1,10 @@
 from flask import Flask, render_template, jsonify
 from flask_mysqldb import MySQL
+import database
 
-app = Flask(__name__)
+app = database.app
 
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'  # your MySQL username
-app.config['MYSQL_PASSWORD'] = ''  # your MySQL password
-app.config['MYSQL_DB'] = 'flask-project'  # your MySQL database name
-
-mysql = MySQL(app)
+mysql = MySQL(database.app)
 
 JOBS = [{
   'id': 1,
